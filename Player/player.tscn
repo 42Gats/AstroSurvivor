@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmxfh7qojoetn"]
+[gd_scene load_steps=7 format=3 uid="uid://dmxfh7qojoetn"]
 
-[ext_resource type="Script" uid="uid://bbwoon15to3wx" path="res://Player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dd3rv8k1vmbxy" path="res://Player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://dt1213jmiq0rt" path="res://UI/slot.tscn" id="2_4ntmi"]
+[ext_resource type="Resource" uid="uid://dy5h6ci1kf0p0" path="res://Weapons/MagicWand.tres" id="3_btcbx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sh265"]
 size = Vector2(20, 20)
@@ -13,6 +15,22 @@ size = Vector2(20, 20)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4flbx")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Weapons" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot" parent="UI/Weapons" instance=ExtResource("2_4ntmi")]
+layout_mode = 2
+weapon = ExtResource("3_btcbx")
+
+[node name="Slot2" parent="UI/Weapons" instance=ExtResource("2_4ntmi")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Weapons" instance=ExtResource("2_4ntmi")]
+layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_sh265")
@@ -40,6 +58,8 @@ show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
