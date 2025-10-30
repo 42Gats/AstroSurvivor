@@ -16,3 +16,8 @@ func take_damage(amount):
  
 func _on_self_damage_body_entered(body):
 	take_damage(body.damage)
+
+
+func _on_timer_timeout() -> void:
+	%Collision.set_deferred("disabled", true)
+	%Collision.set_deferred("disabled", false)

@@ -1,17 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://chyaepi3bshhs"]
 
 [ext_resource type="Script" uid="uid://de63ubk1w5tpn" path="res://Enemy/enemy.gd" id="1_2pb1h"]
+[ext_resource type="Texture2D" uid="uid://dpq07yhxjvkuc" path="res://RPG Battlers 3/1 v1.png" id="3_eqilm"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_px1sc"]
-size = Vector2(20, 20)
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6jha"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_am0pq"]
-
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_2pb1h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_px1sc")
+texture = ExtResource("3_eqilm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_am0pq")
+shape = SubResource("CircleShape2D_m6jha")
