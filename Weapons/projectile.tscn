@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2mcq3weywm8w"]
+
+[ext_resource type="Script" uid="uid://c16rtbf3e84f7" path="res://Weapons/projectile.gd" id="1_twgok"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pwqqu"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwqqu"]
+size = Vector2(10, 10)
+
+[sub_resource type="Gradient" id="Gradient_twgok"]
+colors = PackedColorArray(0.85490197, 0, 0, 1, 0.8185935, 0.69475645, 1.1551381e-06, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ody5c"]
+gradient = SubResource("Gradient_twgok")
+
+[sub_resource type="Curve" id="Curve_24puh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5p0wr"]
+curve = SubResource("Curve_24puh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w2nmq"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_5p0wr")
+color_ramp = SubResource("GradientTexture1D_ody5c")
+turbulence_enabled = true
+turbulence_influence_max = 0.282
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_twgok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_pwqqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pwqqu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_w2nmq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
