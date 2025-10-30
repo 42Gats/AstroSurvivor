@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://c7u6mvfs4gg76"]
+
+[ext_resource type="Texture2D" uid="uid://2jj4jnpel23d" path="res://Weapons/Icons/Icon15_01.png" id="1_oyurw"]
+[ext_resource type="Script" uid="uid://jf5nwyk00x85" path="res://Pickups/Gem.gd" id="2_nnr1h"]
+
+[resource]
+script = ExtResource("2_nnr1h")
+XP = 1.0
+title = "Blue Exp"
+icon = ExtResource("1_oyurw")
+description = "Gain Experience Points"
+metadata/_custom_type_script = "uid://jf5nwyk00x85"
