@@ -1,14 +1,37 @@
 extends CharacterBody2D
  
-var speed : float = 150
+var Max_Health : float = 100.0 :
+	set(value):
+		Max_Health = value
+		%"Max Health".text = "H : " + str(value)
+
+var Damage : float = 1.0 :
+	set(value):
+		Damage = value
+		%Damage.text = "D : " + str(value)
+
+var Attack_Speed : float = 1.0 :
+	set(value):
+		Attack_Speed = value
+		%"Attack Speed".text = "AS : " + str(value)
+var Move_Speed : float = 150
+var Shield : float = 50
+var gold : float = 0
+var Critical_Chances : float = 0
+var Critical_Damage : float = 150
+var Pickup_Range : float = 50
+var Projectile_Range : float = 500
+var Projectile_count : float = 1
 var health : float = 100.0 :
 	set(value):
 		health = value
 		%Health.value = value
+		if health <= 0:
+			get_tree().paused = true
  
 var nearest_enemy : CharacterBody2D
 var nearest_enemy_distance : float = INF
- 
+
 var level : int = 1:
 	set(value):
 		level = value
@@ -23,13 +46,19 @@ var XP : int = 0:
 		XP = value
 		%XP.value = value
 var total_XP : int = 0
- 
+
+func add_gold(earned_gold):
+	gold += earned_gold
+
+func _ready():
+	Persistence.gain_bonus_stats(self) 
+
 func _physics_process(delta):
 	if is_instance_valid(nearest_enemy):
 		nearest_enemy_distance = nearest_enemy.separation
 	else:
 		nearest_enemy_distance = INF
-	velocity = Input.get_vector("left","right","up","down") * speed
+	velocity = Input.get_vector("left","right","up","down") * Move_Speed
 	move_and_collide(velocity * delta)
  
 	check_XP()

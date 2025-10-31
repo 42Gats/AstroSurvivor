@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmxfh7qojoetn"]
+[gd_scene load_steps=9 format=3 uid="uid://dmxfh7qojoetn"]
 
 [ext_resource type="Script" uid="uid://dd3rv8k1vmbxy" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dt1213jmiq0rt" path="res://UI/slot.tscn" id="2_4ntmi"]
 [ext_resource type="Resource" uid="uid://dy5h6ci1kf0p0" path="res://Weapons/MagicWand.tres" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://yr6sthqsi7f3" path="res://Player/back.gd" id="4_gwnis"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sh265"]
 size = Vector2(20, 20)
@@ -59,6 +60,46 @@ offset_bottom = 45.0
 grow_horizontal = 0
 text = "Level 1"
 
+[node name="Debug" type="VBoxContainer" parent="UI"]
+offset_left = 7.0
+offset_top = 81.0
+offset_right = 47.0
+offset_bottom = 158.0
+
+[node name="Damage" type="Label" parent="UI/Debug"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "D : 1"
+
+[node name="Max Health" type="Label" parent="UI/Debug"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "H : 0"
+
+[node name="Attack Speed" type="Label" parent="UI/Debug"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "AS : 0"
+
+[node name="Back" type="Button" parent="UI"]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -15.5
+offset_right = 58.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back To Menu"
+script = ExtResource("4_gwnis")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_sh265")
 
@@ -95,6 +136,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
 shape = SubResource("CircleShape2D_btcbx")
 
+[connection signal="pressed" from="UI/Back" to="UI/Back" method="_on_pressed"]
 [connection signal="body_entered" from="SelfDamage" to="." method="_on_self_damage_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]

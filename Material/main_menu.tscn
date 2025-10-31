@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddoqsr2wf2haf"]
+[gd_scene load_steps=28 format=3 uid="uid://ddoqsr2wf2haf"]
 
 [ext_resource type="PackedScene" uid="uid://brm4qyd5rlabk" path="res://UI/upgrade.tscn" id="1_miadt"]
 [ext_resource type="Script" uid="uid://rqnhi6kp0l6g" path="res://Material/skill_tree.gd" id="1_ttnh0"]
@@ -10,12 +10,90 @@
 [ext_resource type="Script" uid="uid://drnccbmc0eopa" path="res://UI/UI_Gold.gd" id="7_b7y4i"]
 [ext_resource type="Script" uid="uid://cos6lkk3cmel1" path="res://Material/start.gd" id="9_b7y4i"]
 
+[sub_resource type="Resource" id="Resource_dpai8"]
+script = ExtResource("3_yl0tb")
+Damage = 10.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_43jvx"]
+script = ExtResource("2_70yij")
+name = "Damage I"
+texture = ExtResource("4_6xuka")
+cost = 10
+stats = SubResource("Resource_dpai8")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_8yxrk"]
+script = ExtResource("3_yl0tb")
+Damage = 25.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_gmds1"]
+script = ExtResource("2_70yij")
+name = "Damage II"
+texture = ExtResource("5_gynh8")
+cost = 100
+stats = SubResource("Resource_8yxrk")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_r87mc"]
+script = ExtResource("3_yl0tb")
+Damage = 50.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_ut44w"]
+script = ExtResource("2_70yij")
+name = "Damage III"
+texture = ExtResource("6_ttnh0")
+cost = 1000
+stats = SubResource("Resource_r87mc")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_srcjx"]
+script = ExtResource("3_yl0tb")
+Max_Health = 50.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_b7y4i"]
+script = ExtResource("2_70yij")
+name = "Max health I"
+texture = ExtResource("4_6xuka")
+cost = 10
+stats = SubResource("Resource_srcjx")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_hx17r"]
+script = ExtResource("3_yl0tb")
+Max_Health = 150.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_8k0xb"]
+script = ExtResource("2_70yij")
+name = "Max Health II"
+texture = ExtResource("5_gynh8")
+cost = 100
+stats = SubResource("Resource_hx17r")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_qtjpq"]
+script = ExtResource("3_yl0tb")
+Max_Health = 400.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_ket7d"]
+script = ExtResource("2_70yij")
+name = "Max Health III"
+texture = ExtResource("6_ttnh0")
+cost = 1000
+stats = SubResource("Resource_qtjpq")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
 [sub_resource type="Resource" id="Resource_6cmc7"]
 script = ExtResource("3_yl0tb")
 Attack_Speed = 2.0
 metadata/_custom_type_script = "uid://djy0b06dmln0m"
 
-[sub_resource type="Resource" id="Resource_gynh8"]
+[sub_resource type="Resource" id="Resource_j23j7"]
 script = ExtResource("2_70yij")
 name = "Attack Speed I"
 texture = ExtResource("4_6xuka")
@@ -43,7 +121,7 @@ metadata/_custom_type_script = "uid://djy0b06dmln0m"
 
 [sub_resource type="Resource" id="Resource_7615g"]
 script = ExtResource("2_70yij")
-name = "Attack Speed III"
+name = "Damage III"
 texture = ExtResource("6_ttnh0")
 cost = 1000
 stats = SubResource("Resource_ayk8e")
@@ -84,19 +162,19 @@ grow_vertical = 2
 layout_mode = 0
 offset_left = -84.0
 offset_right = -44.0
-skill = SubResource("Resource_gynh8")
+skill = SubResource("Resource_43jvx")
 
 [node name="Upgrade2" parent="SkillTree/Damage" instance=ExtResource("1_miadt")]
 layout_mode = 0
 offset_left = -196.0
 offset_right = -156.0
-skill = SubResource("Resource_ttnh0")
+skill = SubResource("Resource_gmds1")
 
 [node name="Upgrade3" parent="SkillTree/Damage" instance=ExtResource("1_miadt")]
 layout_mode = 0
 offset_left = -300.0
 offset_right = -260.0
-skill = SubResource("Resource_7615g")
+skill = SubResource("Resource_ut44w")
 
 [node name="Max_Health" type="Control" parent="SkillTree"]
 layout_mode = 1
@@ -116,19 +194,19 @@ grow_vertical = 2
 layout_mode = 0
 offset_left = 84.0
 offset_right = 124.0
-skill = SubResource("Resource_gynh8")
+skill = SubResource("Resource_b7y4i")
 
 [node name="Upgrade2" parent="SkillTree/Max_Health" instance=ExtResource("1_miadt")]
 layout_mode = 0
 offset_left = 196.0
 offset_right = 236.0
-skill = SubResource("Resource_ttnh0")
+skill = SubResource("Resource_8k0xb")
 
 [node name="Upgrade3" parent="SkillTree/Max_Health" instance=ExtResource("1_miadt")]
 layout_mode = 0
 offset_left = 300.0
 offset_right = 340.0
-skill = SubResource("Resource_7615g")
+skill = SubResource("Resource_ket7d")
 
 [node name="Attack_Speed" type="Control" parent="SkillTree"]
 layout_mode = 1
@@ -150,7 +228,7 @@ offset_left = -4.0
 offset_top = -88.0
 offset_right = 36.0
 offset_bottom = -48.0
-skill = SubResource("Resource_gynh8")
+skill = SubResource("Resource_j23j7")
 
 [node name="Upgrade2" parent="SkillTree/Attack_Speed" instance=ExtResource("1_miadt")]
 layout_mode = 0
