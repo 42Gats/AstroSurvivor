@@ -1,25 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddoqsr2wf2haf"]
+[gd_scene load_steps=16 format=3 uid="uid://ddoqsr2wf2haf"]
 
 [ext_resource type="PackedScene" uid="uid://brm4qyd5rlabk" path="res://UI/upgrade.tscn" id="1_miadt"]
+[ext_resource type="Script" uid="uid://rqnhi6kp0l6g" path="res://Material/skill_tree.gd" id="1_ttnh0"]
 [ext_resource type="Script" uid="uid://ctbrqorbae73c" path="res://Skill.gd" id="2_70yij"]
 [ext_resource type="Script" uid="uid://djy0b06dmln0m" path="res://Stats.gd" id="3_yl0tb"]
 [ext_resource type="Texture2D" uid="uid://24n0pkwm1q83" path="res://RPG Battlers 3/17 v1.png" id="4_6xuka"]
+[ext_resource type="Texture2D" uid="uid://uiyowlqt1ato" path="res://RPG Battlers 3/17 v2.png" id="5_gynh8"]
+[ext_resource type="Texture2D" uid="uid://b2tq2bi3v725c" path="res://RPG Battlers 3/17.png" id="6_ttnh0"]
+[ext_resource type="Script" uid="uid://drnccbmc0eopa" path="res://UI/UI_Gold.gd" id="7_b7y4i"]
+[ext_resource type="Script" uid="uid://cos6lkk3cmel1" path="res://Material/start.gd" id="9_b7y4i"]
 
 [sub_resource type="Resource" id="Resource_6cmc7"]
 script = ExtResource("3_yl0tb")
-Damage = 10.0
+Attack_Speed = 2.0
 metadata/_custom_type_script = "uid://djy0b06dmln0m"
 
 [sub_resource type="Resource" id="Resource_gynh8"]
 script = ExtResource("2_70yij")
-name = "Damage I"
+name = "Attack Speed I"
 texture = ExtResource("4_6xuka")
 cost = 10
 stats = SubResource("Resource_6cmc7")
 metadata/_custom_type_script = "uid://ctbrqorbae73c"
 
+[sub_resource type="Resource" id="Resource_mwwic"]
+script = ExtResource("3_yl0tb")
+Attack_Speed = 5.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
 [sub_resource type="Resource" id="Resource_ttnh0"]
 script = ExtResource("2_70yij")
+name = "Attack Speed II"
+texture = ExtResource("5_gynh8")
+cost = 100
+stats = SubResource("Resource_mwwic")
+metadata/_custom_type_script = "uid://ctbrqorbae73c"
+
+[sub_resource type="Resource" id="Resource_ayk8e"]
+script = ExtResource("3_yl0tb")
+Attack_Speed = 10.0
+metadata/_custom_type_script = "uid://djy0b06dmln0m"
+
+[sub_resource type="Resource" id="Resource_7615g"]
+script = ExtResource("2_70yij")
+name = "Attack Speed III"
+texture = ExtResource("6_ttnh0")
+cost = 1000
+stats = SubResource("Resource_ayk8e")
 metadata/_custom_type_script = "uid://ctbrqorbae73c"
 
 [node name="MainMenu" type="Control"]
@@ -37,6 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ttnh0")
 
 [node name="Damage" type="Control" parent="SkillTree"]
 layout_mode = 1
@@ -54,17 +82,115 @@ grow_vertical = 2
 
 [node name="Upgrade" parent="SkillTree/Damage" instance=ExtResource("1_miadt")]
 layout_mode = 0
-offset_left = -108.0
-offset_right = -68.0
+offset_left = -84.0
+offset_right = -44.0
 skill = SubResource("Resource_gynh8")
 
 [node name="Upgrade2" parent="SkillTree/Damage" instance=ExtResource("1_miadt")]
 layout_mode = 0
-offset_left = -236.0
-offset_right = -196.0
+offset_left = -196.0
+offset_right = -156.0
 skill = SubResource("Resource_ttnh0")
 
 [node name="Upgrade3" parent="SkillTree/Damage" instance=ExtResource("1_miadt")]
 layout_mode = 0
-offset_left = -364.0
-offset_right = -324.0
+offset_left = -300.0
+offset_right = -260.0
+skill = SubResource("Resource_7615g")
+
+[node name="Max_Health" type="Control" parent="SkillTree"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade" parent="SkillTree/Max_Health" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 124.0
+skill = SubResource("Resource_gynh8")
+
+[node name="Upgrade2" parent="SkillTree/Max_Health" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = 196.0
+offset_right = 236.0
+skill = SubResource("Resource_ttnh0")
+
+[node name="Upgrade3" parent="SkillTree/Max_Health" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 340.0
+skill = SubResource("Resource_7615g")
+
+[node name="Attack_Speed" type="Control" parent="SkillTree"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade" parent="SkillTree/Attack_Speed" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -88.0
+offset_right = 36.0
+offset_bottom = -48.0
+skill = SubResource("Resource_gynh8")
+
+[node name="Upgrade2" parent="SkillTree/Attack_Speed" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -184.0
+offset_right = 36.0
+offset_bottom = -144.0
+skill = SubResource("Resource_ttnh0")
+
+[node name="Upgrade3" parent="SkillTree/Attack_Speed" instance=ExtResource("1_miadt")]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -272.0
+offset_right = 36.0
+offset_bottom = -232.0
+skill = SubResource("Resource_7615g")
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 32.0
+offset_right = 1128.0
+offset_bottom = 71.0
+horizontal_alignment = 2
+script = ExtResource("7_b7y4i")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -216.0
+offset_right = 22.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+script = ExtResource("9_b7y4i")
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
