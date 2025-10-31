@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dt1213jmiq0rt" path="res://UI/slot.tscn" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bhhgexq5vbvxc" path="res://Weapons/Icons/Icon15_17.png" id="2_k53q1"]
 [ext_resource type="Resource" uid="uid://dy5h6ci1kf0p0" path="res://Weapons/MagicWand.tres" id="3_btcbx"]
-[ext_resource type="Script" uid="uid://dpecmsgddxoub" path="res://Player/options.gd" id="4_gwnis"]
-[ext_resource type="Script" uid="uid://yr6sthqsi7f3" path="res://Player/back.gd" id="5_fhl08"]
+[ext_resource type="Script" path="res://Player/options.gd" id="4_gwnis"]
+[ext_resource type="Script" path="res://Player/back.gd" id="5_fhl08"]
 
 [sub_resource type="Gradient" id="Gradient_fhl08"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -168,10 +168,10 @@ shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="Health" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -10.0
-offset_top = -16.0
-offset_right = 10.0
-offset_bottom = -12.0
+offset_left = -23.0
+offset_top = -27.0
+offset_right = 23.0
+offset_bottom = -13.0
 value = 100.0
 show_percentage = false
 

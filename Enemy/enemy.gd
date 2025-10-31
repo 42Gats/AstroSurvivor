@@ -9,13 +9,17 @@ var knockback : Vector2
 var separation : float
 
 var drop = preload("res://Pickups/pickups.tscn")
- 
+
 var health : float:
 	set(value):
 		health = value
 		if health <= 0:
 			drop_item()
-			queue_free()
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "scale", Vector2(0, 0), 0.25)\
+				.set_trans(Tween.TRANS_BACK)\
+				.set_ease(Tween.EASE_IN)
+			tween.tween_callback(Callable(self, "queue_free"))
  
 var elite : bool = false:
 	set(value):
@@ -30,6 +34,11 @@ var type : Enemy:
 		$Sprite2D.texture = value.texture
 		damage = value.damage
 		health = value.health
+
+func _ready():
+	scale = Vector2(0, 0) # Commence tout petit
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
  
  
 func _physics_process(delta):

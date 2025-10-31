@@ -14,7 +14,7 @@ var Attack_Speed : float = 1.0 :
 	set(value):
 		Attack_Speed = value
 		%"Attack Speed".text = "AS : " + str(value)
-var Move_Speed : float = 150
+var Move_Speed : float = 200
 var Shield : float = 50
 var gold : float = 0
 var Critical_Chances : float = 0
@@ -35,7 +35,7 @@ var nearest_enemy_distance : float = INF
 var level : int = 1:
 	set(value):
 		level = value
-		%Level.text = str(value)
+		%Level.text = "Level" + str(value)
 		%Options.show_options()
 		if level >= 2:
 			%XP.max_value = 20
