@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://chhcai50hfr8d"]
 
-[ext_resource type="Script" uid="uid://cugbqgscf0s1x" path="res://PickupResource.gd" id="1_6ew2s"]
+[ext_resource type="Script" path="res://PickupResource.gd" id="1_6ew2s"]
 [ext_resource type="Script" uid="uid://bwd2cch27002u" path="res://Enemy/EnemyType.gd" id="1_wejsc"]
 [ext_resource type="Resource" uid="uid://cpxprw6a5i86k" path="res://Pickups/GreenExp.tres" id="2_6ew2s"]
 [ext_resource type="Texture2D" uid="uid://1inr30dhw4pk" path="res://RPG Battlers 3/4 v1.png" id="2_oo5xy"]

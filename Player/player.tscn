@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmxfh7qojoetn"]
+[gd_scene load_steps=14 format=3 uid="uid://dmxfh7qojoetn"]
 
 [ext_resource type="Script" uid="uid://dd3rv8k1vmbxy" path="res://Player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dt1213jmiq0rt" path="res://UI/slot.tscn" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bhhgexq5vbvxc" path="res://Weapons/Icons/Icon15_17.png" id="2_k53q1"]
 [ext_resource type="Resource" uid="uid://dy5h6ci1kf0p0" path="res://Weapons/MagicWand.tres" id="3_btcbx"]
-[ext_resource type="Script" uid="uid://yr6sthqsi7f3" path="res://Player/back.gd" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://dpecmsgddxoub" path="res://Player/options.gd" id="4_gwnis"]
+[ext_resource type="Script" uid="uid://yr6sthqsi7f3" path="res://Player/back.gd" id="5_fhl08"]
 
 [sub_resource type="Gradient" id="Gradient_fhl08"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -130,7 +130,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back To Menu"
-script = ExtResource("4_gwnis")
+script = ExtResource("5_fhl08")
 
 [node name="Options" type="VBoxContainer" parent="UI" node_paths=PackedStringArray("weapons", "particles")]
 unique_name_in_owner = true
@@ -146,6 +146,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 script = ExtResource("4_gwnis")
 weapons = NodePath("../Weapons")
 particles = NodePath("../Particles")
