@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://diphlmaw0lvxx"]
+
+[ext_resource type="Texture2D" uid="uid://bhpjf3ao3i1lv" path="res://UI/Options/Icon9_32.png" id="1_ssyl0"]
+[ext_resource type="Texture2D" uid="uid://dpj52yr1sgvlj" path="res://UI/Options/GUI-Kit-Pack-Free_53.png" id="2_hoq0y"]
+[ext_resource type="Script" uid="uid://c4e03f64jat4d" path="res://UI/Options/option_slot.gd" id="2_jyd4v"]
+
+[node name="OptionSlot" type="TextureButton"]
+custom_minimum_size = Vector2(315, 48)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+texture_normal = ExtResource("1_ssyl0")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2_jyd4v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 14.0
+offset_right = 123.0
+offset_bottom = 37.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 12.0
+offset_right = 300.0
+offset_bottom = 37.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(315, 48)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 319.0
+offset_bottom = 49.0
+texture = ExtResource("2_hoq0y")
+region_rect = Rect2(6.180588, 1.1947155, 66.27682, 51.805283)
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
