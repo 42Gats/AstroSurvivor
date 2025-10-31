@@ -11,6 +11,5 @@ position = Vector2(286, 218)
 
 [node name="Pickups" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("2_gtth1")]
 position = Vector2(140, 197)
-collision_layer = 4
 type = ExtResource("3_0hkpf")
 player_reference = NodePath("../Player")

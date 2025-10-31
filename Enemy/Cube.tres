@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://dji7ecowtycrd"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dji7ecowtycrd"]
 
+[ext_resource type="Script" uid="uid://cugbqgscf0s1x" path="res://PickupResource.gd" id="1_2tmq1"]
 [ext_resource type="Script" uid="uid://bwd2cch27002u" path="res://Enemy/EnemyType.gd" id="1_iuueh"]
 [ext_resource type="Texture2D" uid="uid://ck6esh7pmdic5" path="res://RPG Battlers 3/2 v1.png" id="2_0nqhv"]
+[ext_resource type="Resource" uid="uid://c7u6mvfs4gg76" path="res://Pickups/BlueExp.tres" id="2_yy8go"]
 
 [resource]
 script = ExtResource("1_iuueh")
@@ -9,4 +11,5 @@ title = "Cube"
 texture = ExtResource("2_0nqhv")
 health = 3.0
 damage = 3.0
+drops = Array[ExtResource("1_2tmq1")]([ExtResource("2_yy8go")])
 metadata/_custom_type_script = "uid://bwd2cch27002u"

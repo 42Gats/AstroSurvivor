@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://cpxprw6a5i86k"]
+
+[ext_resource type="Texture2D" uid="uid://bhhgexq5vbvxc" path="res://Weapons/Icons/Icon15_17.png" id="1_71r3j"]
+[ext_resource type="Script" uid="uid://jf5nwyk00x85" path="res://Pickups/Gem.gd" id="2_7h8rl"]
+
+[resource]
+script = ExtResource("2_7h8rl")
+XP = 2.0
+title = "GreenExp"
+icon = ExtResource("1_71r3j")
+metadata/_custom_type_script = "uid://jf5nwyk00x85"

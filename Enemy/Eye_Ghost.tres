@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://d4h57p78qhd0w"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://d4h57p78qhd0w"]
 
+[ext_resource type="Script" uid="uid://cugbqgscf0s1x" path="res://PickupResource.gd" id="1_63wic"]
 [ext_resource type="Script" uid="uid://bwd2cch27002u" path="res://Enemy/EnemyType.gd" id="1_mh0ey"]
+[ext_resource type="Resource" uid="uid://cpxprw6a5i86k" path="res://Pickups/GreenExp.tres" id="2_63wic"]
 [ext_resource type="Texture2D" uid="uid://dusn6r5w0vg2x" path="res://RPG Battlers 3/5 v1.png" id="2_p3lko"]
 
 [resource]
@@ -9,4 +11,5 @@ title = "Eye_Ghost"
 texture = ExtResource("2_p3lko")
 health = 3.0
 damage = 7.0
+drops = Array[ExtResource("1_63wic")]([ExtResource("2_63wic")])
 metadata/_custom_type_script = "uid://bwd2cch27002u"

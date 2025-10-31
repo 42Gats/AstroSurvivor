@@ -7,11 +7,14 @@ var speed : float = 75
 var damage : float
 var knockback : Vector2
 var separation : float
+
+var drop = preload("res://Pickups/pickups.tscn")
  
 var health : float:
 	set(value):
 		health = value
 		if health <= 0:
+			drop_item()
 			queue_free()
  
 var elite : bool = false:
@@ -56,6 +59,20 @@ func damage_popup(amount):
 	popup.text = str(amount)
 	popup.position = position + Vector2(-50,-25)
 	get_tree().current_scene.add_child(popup)
+	
+func drop_item():
+	if type.drops.size() == 0:
+		return
+	
+	var item = type.drops.pick_random()
+	
+	var item_to_drop = drop.instantiate()
+	
+	item_to_drop.type = item;
+	item_to_drop.position = position;
+	item_to_drop.player_reference = player_reference;
+	
+	get_tree().current_scene.call_deferred("add_child", item_to_drop)
  
  
 func take_damage(amount):
