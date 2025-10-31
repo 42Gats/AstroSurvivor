@@ -44,7 +44,6 @@ anchor_right = 1.0
 offset_bottom = 20.0
 grow_horizontal = 2
 max_value = 10.0
-value = 2.0
 show_percentage = false
 
 [node name="Level" type="Label" parent="UI/XP"]

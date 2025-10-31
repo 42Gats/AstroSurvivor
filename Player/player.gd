@@ -52,6 +52,7 @@ func _on_self_damage_body_entered(body):
 	take_damage(body.damage)
  
 func gain_XP(amount):
+	print("amoun:", amount)
 	XP += amount
 	total_XP += amount
  
